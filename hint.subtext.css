@@ -1,0 +1,56 @@
+/**
+ * HINT.SUBTEXT.css is a simple expansion of HINT.css
+ *
+ * Original Source: https://github.com/chinchang/hint.css
+ *
+ * Release under The MIT License
+ */
+[data-subtext] {
+  position: relative;
+  display: inline-block;
+}
+[data-subtext]:hover {
+    text-decoration: line-through;
+}
+[data-subtext]:before {
+    position: absolute;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1000000;
+    pointer-events: none;
+    -webkit-transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    transition: 0.3s ease;
+    -webkit-transition-delay: 0ms;
+    -moz-transition-delay: 0ms;
+    transition-delay: 0ms; 
+}
+[data-subtext]:hover:before {
+    visibility: visible;
+    opacity: 1; 
+}
+[data-subtext]:hover:before {
+    -webkit-transition-delay: 100ms;
+    -moz-transition-delay: 100ms;
+    transition-delay: 100ms; 
+}
+[data-subtext]:before {
+    content: attr(data-subtext);
+    background: #111;
+    color: white;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 10px;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 12px;
+    white-space: nowrap; 
+}
+[data-subtext='']:before {
+  display: none !important;
+}
+
